@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/destination_first">
+
+    <fragment
+        android:id="@+id/destination_first"
+        android:name="com.example.navigationeditor.Fragments.FirstFragment"
+        android:label="First Fragment"
+        tools:layout="@layout/fragment_first">
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_second" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_second"
+        android:name="com.example.navigationeditor.Fragments.SecondFragment"
+        android:label="Second Fragment"
+        tools:layout="@layout/fragment_second">
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_third" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_third"
+        android:name="com.example.navigationeditor.Fragments.ThirdFragment"
+        android:label="Third Fragment"
+        tools:layout="@layout/fragment_third">
+        <argument
+            android:name="numOfPhotos"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_fourth" />
+        <action
+            android:id="@+id/popup_action"
+            app:destination="@id/destination_first"
+            app:popUpTo="@+id/destination_first" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_settings"
+        android:name="com.example.navigationeditor.Fragments.SettingsFragment"
+        android:label="Settings Fragment"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/destination_fourth"
+        android:name="com.example.navigationeditor.Fragments.FourthFragment"
+        android:label="Fourth Fragment"
+        tools:layout="@layout/fragment_fourth" />
+</navigation>
